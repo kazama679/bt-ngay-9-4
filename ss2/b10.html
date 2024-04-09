@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let users = [
+            {
+                name: "Nguyễn Văn A",
+                address: "Hà Nội",
+                email: "nva@rikkei.com",
+            },
+            {
+                name: "Trần Văn Bình",
+                address: "Hà Nội",
+                email: "tvbinh@rikkei.com",
+            },
+            {
+                name: "Nguyễn Hồng Anh",
+                address: "Thái Bình",
+                email: "nhanh@gmail.com",
+            },
+            {
+                name: "Lê Văn Nam",
+                address: "Hà Nội",
+                email: "lvnam@gmail.com",
+            },
+        ];
+        // cách chỉ dùng filter
+        let filterUser = users[1];
+        let filterEmail = filterUser.email.split('@')[1];
+        let filterAddress = filterUser.address;
+        let newArr = users.filter((user) => {
+            return user.address === filterAddress && user.email.split('@')[1] === filterEmail;
+        });
+        console.log(newArr);
+
+        // cách dùng cả find cả filter
+        function filterByAddressAndEmail(users, city, emailSuffix) {
+            let foundUser = users.find(user => user.address === city);
+            if (foundUser) {
+                let filteredUsers = users.filter(user => user.address === city && user.email.endsWith(emailSuffix));
+                return filteredUsers;
+            } else {
+                return [];
+            }
+        }
+        let filteredUsers = filterByAddressAndEmail(users, "Hà Nội", "@rikkei.com");
+        console.log(filteredUsers);
+    </script>
+</body>
+</html>
