@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function b(...objects) {
+        let c = {};
+        objects.forEach((obj) => {
+            for (let key in obj) {
+                c[key] = obj[key];
+            }
+        });
+        return c;
+    }
+    const a = b(
+        { name: "Quang" },
+        { name: "Minh Anh" },
+        { age: "19" },
+    );
+    console.log(a);
+    </script>
+</body>
+</html>
